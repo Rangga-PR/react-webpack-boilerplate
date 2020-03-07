@@ -3,6 +3,7 @@ const merge = require("webpack-merge");
 const common = require("./webpack.common");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = merge(common, {
   mode: "production",
@@ -15,6 +16,7 @@ module.exports = merge(common, {
   optimization: {
     runtimeChunk: "single",
     minimizer: [
+      new TerserPlugin(),
       new HtmlWebpackPlugin({
         title: "react app",
         template: "./src/index.html",
