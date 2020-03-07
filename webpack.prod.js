@@ -10,5 +10,23 @@ module.exports = merge(common, {
     path: path.resolve(__dirname, "dist")
   },
   devtool: "source-map",
-  plugins: [new CleanWebpackPlugin()]
+  plugins: [new CleanWebpackPlugin()],
+  optimization: {
+    runtimeChunk: "single",
+    splitChunks: {
+      chunks: "all",
+      maxInitialRequests: Infinity,
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name(module) {
+            const packageName = module.context.match(
+              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+            )[1];
+            return `vendor-${packageName.replace("@", "")}`;
+          }
+        }
+      }
+    }
+  }
 });
