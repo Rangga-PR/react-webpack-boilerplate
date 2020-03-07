@@ -5,7 +5,7 @@
       {
         "debug": true,
         "useBuiltIns": "usage",
-        "core-js": 3
+        "corejs": 3
       }
     ],
     "@babel/preset-react"
