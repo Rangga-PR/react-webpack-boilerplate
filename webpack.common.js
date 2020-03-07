@@ -4,6 +4,9 @@ module.exports = {
   entry: {
     app: "./src/index.js"
   },
+  resolve: {
+    extensions: ["*", ".js", ".jsx"]
+  },
   module: {
     rules: [
       {
