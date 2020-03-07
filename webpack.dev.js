@@ -1,22 +1,21 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const merge = require("webpack-merge");
+const common = require("./webpack.common");
 
-module.exports = {
-  entry: {
-    app: "./src/index.js"
-  },
+module.exports = merge(common, {
+  mode: "development",
   output: {
     filename: "[name]-bundle.js",
     path: path.resolve(__dirname, "dist")
   },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        loader: "babel-loader"
-      }
-    ]
+  devtool: "inline-source-map",
+  devServer: {
+    contentBase: "./dist",
+    hot: true,
+    open: true,
+    port: 8080,
+    historyApiFallback: true
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -24,4 +23,4 @@ module.exports = {
       template: "./src/index.html"
     })
   ]
-};
+});
