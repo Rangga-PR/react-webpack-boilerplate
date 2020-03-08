@@ -8,6 +8,10 @@ const App = () => {
         {`
           .hello-world {
             color: #35627d;
+
+            &:hover {
+              color: #c4c4c4;
+            }
           }
         `}
       </style>

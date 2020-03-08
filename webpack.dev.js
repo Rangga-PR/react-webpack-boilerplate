@@ -9,6 +9,14 @@ module.exports = merge(common, {
     filename: "[name]-bundle.js",
     path: path.resolve(__dirname, "dist")
   },
+  module: {
+    rules: [
+      {
+        test: /\.sass$/,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      }
+    ]
+  },
   devtool: "inline-source-map",
   devServer: {
     contentBase: "./dist",
