@@ -2,28 +2,38 @@ const path = require("path");
 
 module.exports = {
   entry: {
-    app: "./src/index.js"
+    app: "./src/index.js",
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx"]
+    extensions: ["*", ".js", ".jsx"],
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: "babel-loader"
+        loader: "babel-loader",
       },
       {
         test: /\.(svg|ico|png|jpg|jpeg|gif|webp)$/,
         use: {
           loader: "file-loader",
           options: {
-            name: "[name]-hash.[ext]",
-            outputPath: path.resolve(__dirname, "dist/assets/img")
-          }
-        }
-      }
-    ]
-  }
+            name: "[name]-[hash].[ext]",
+            outputPath: "dist/assets/img",
+          },
+        },
+      },
+      {
+        test: /\.(otf|ttf|woff2|woff)$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "[name]-[hash].[ext]",
+            outputPath: "dist/assets/font",
+          },
+        },
+      },
+    ],
+  },
 };
