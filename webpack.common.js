@@ -20,7 +20,7 @@ module.exports = {
           loader: "file-loader",
           options: {
             name: "[name]-[hash].[ext]",
-            outputPath: "dist/assets/img",
+            outputPath: "assets/img",
           },
         },
       },
@@ -30,7 +30,7 @@ module.exports = {
           loader: "file-loader",
           options: {
             name: "[name]-[hash].[ext]",
-            outputPath: "dist/assets/font",
+            outputPath: "assets/font",
           },
         },
       },
