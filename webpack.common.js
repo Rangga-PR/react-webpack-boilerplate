@@ -23,7 +23,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(otf|ttf|woff2|woff)$/,
+        test: /\.(otf|eot|ttf|woff2|woff)$/,
         use: {
           loader: "file-loader",
           options: {
