@@ -1,21 +1,19 @@
 import React from "react";
+import styled from "styled-components";
+
+const HelloWorld = styled.h1`
+  color: #35627d;
+
+  &:hover {
+    color: #c4c4c4;
+  }
+`;
 
 const App = () => {
   return (
-    <>
-      <h1 className="hello-world">Hello World, Its ya boiii React</h1>
-      <style jsx>
-        {`
-          .hello-world {
-            color: #35627d;
-
-            &:hover {
-              color: #c4c4c4;
-            }
-          }
-        `}
-      </style>
-    </>
+    <HelloWorld className="hello-world">
+      Hello World, Its ya boiii React
+    </HelloWorld>
   );
 };
 
